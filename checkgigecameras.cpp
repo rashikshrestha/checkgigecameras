@@ -23,14 +23,24 @@ int main()
         printf("%d : %d (%X)\n",i,pCamera[i].macLow,pCamera[i].macLow);
 	}
 
-    status = GevOpenCamera(&pCamera[0], GevExclusiveMode, &handle[0]);
+    for (int i = 0; i < numCamera; i++)
+	{
+        status = GevOpenCamera(&pCamera[i], GevExclusiveMode, &handle[i]);
+        std::cout << status << std::endl;
+	}
 
-    GevGetFeatureValue(handle[0], "timestampModulo", &type, sizeof(UINT32), &rectimestampModulo);
-	std::cout << "get timestampModulo = " << rectimestampModulo << std::endl;
+    for (int i = 0; i < numCamera; i++)
+	{
+        GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &rectimestampModulo);
+	    std::cout << "get timestampModulo = " << rectimestampModulo << std::endl;
+	}
 
+    for (int i = 0; i < numCamera; i++)
+	{
+        GevCloseCamera(&handle[i]);
+	}
 
-
-    GevCloseCamera(&handle[0]);
+    
     std::cout << "End of program !! " << std::endl;
     return 0;
 }
