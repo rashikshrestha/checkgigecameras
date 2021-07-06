@@ -9,7 +9,10 @@ int main()
 {
     GEV_DEVICE_INTERFACE pCamera[MAX_CAMERAS] = {0};
 	GEV_STATUS status;
+    GEV_CAMERA_HANDLE handle = NULL;
     int numCamera = 0;
+    UINT32 rectimestampModulo = 0;
+    int type;
 
     status = GevGetCameraList(pCamera, MAX_CAMERAS, &numCamera);
 
@@ -18,6 +21,12 @@ int main()
 	{
 		std::cout << i << " : " << pCamera[i].macLow << std::endl;
 	}
+
+    status = GevOpenCamera(&pCamera[0], GevExclusiveMode, &handle);
+
+    GevGetFeatureValue(handle, "timestampModulo", &type, sizeof(UINT32), &rectimestampModulo);
+	std::cout << "get timestampModulo = " << rectimestampModulo << std::endl;
+
 
 
     std::cout << "End of program !! " << std::endl;
