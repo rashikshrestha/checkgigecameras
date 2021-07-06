@@ -12,7 +12,7 @@ int main()
     // GEV_CAMERA_HANDLE handle = NULL;
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
     int numCamera = 0;
-    UINT32 rectimestampModulo = 0;
+    UINT32 timestampModulo = 0;
     int type;
 
     status = GevGetCameraList(pCamera, MAX_CAMERAS, &numCamera);
@@ -20,7 +20,7 @@ int main()
 	printf("%d camera(s) on the network\n", numCamera);
 	for (int i = 0; i < numCamera; i++)
 	{
-        printf("%d : %d (%X)\n",i,pCamera[i].macLow,pCamera[i].macLow);
+        
 	}
 
     for (int i = 0; i < numCamera; i++)
@@ -29,12 +29,20 @@ int main()
         std::cout << status << std::endl;
 	}
 
+    printf("\n\nCamera details: ");
+
     for (int i = 0; i < numCamera; i++)
 	{
-        GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &rectimestampModulo);
-	    std::cout << "get timestampModulo = " << rectimestampModulo << std::endl;
+        printf("\n");
+        printf("Index: %d\tGUID: %d (%X)\n",i,pCamera[i].macLow,pCamera[i].macLow);
+       
+        GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
+	    std::cout << "timestampModulo = " << timestampModulo << std::endl;
+
+        printf("----------------------------------------------------------------\n");
 	}
 
+    // Close all the Cameras
     for (int i = 0; i < numCamera; i++)
 	{
         GevCloseCamera(&handle[i]);
