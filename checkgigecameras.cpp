@@ -19,7 +19,7 @@ int main()
 	printf("%d camera(s) on the network\n", numCamera);
 	for (int i = 0; i < numCamera; i++)
 	{
-        printf("%d : %X",i,pCamera[i].macLow);
+        printf("%d : %d (%X)\n",i,pCamera[i].macLow,pCamera[i].macLow);
 		// std::cout << i << " : " << pCamera[i].macLow << std::endl;
 	}
 
