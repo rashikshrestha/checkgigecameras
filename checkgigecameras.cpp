@@ -12,7 +12,7 @@ int main()
     // GEV_CAMERA_HANDLE handle = NULL;
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
     int numCamera = 0;
-    UINT32 timestampModulo = 0;
+    UINT32 timestampModulo = 1000000000;
     UINT32 ptpMode = 0;
     int type;
 
@@ -36,7 +36,8 @@ int main()
 	{
         printf("\n");
         printf("Index: %d\tGUID: %d (%X)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
-       
+
+        GevSetFeatureValue(handle[i], "timestampModulo", sizeof(UINT32), &timestampModulo);
         GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
 	    std::cout << "timestampModulo = " << timestampModulo << std::endl;
 
