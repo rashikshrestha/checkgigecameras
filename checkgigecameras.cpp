@@ -9,7 +9,8 @@ int main()
 {
     GEV_DEVICE_INTERFACE pCamera[MAX_CAMERAS] = {0};
 	GEV_STATUS status;
-    GEV_CAMERA_HANDLE handle = NULL;
+    // GEV_CAMERA_HANDLE handle = NULL;
+    GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
     int numCamera = 0;
     UINT32 rectimestampModulo = 0;
     int type;
@@ -20,17 +21,16 @@ int main()
 	for (int i = 0; i < numCamera; i++)
 	{
         printf("%d : %d (%X)\n",i,pCamera[i].macLow,pCamera[i].macLow);
-		// std::cout << i << " : " << pCamera[i].macLow << std::endl;
 	}
 
-    status = GevOpenCamera(&pCamera[0], GevExclusiveMode, &handle);
+    status = GevOpenCamera(&pCamera[0], GevExclusiveMode, &handle[0]);
 
-    GevGetFeatureValue(handle, "timestampModulo", &type, sizeof(UINT32), &rectimestampModulo);
+    GevGetFeatureValue(handle[0], "timestampModulo", &type, sizeof(UINT32), &rectimestampModulo);
 	std::cout << "get timestampModulo = " << rectimestampModulo << std::endl;
 
 
 
-    GevCloseCamera(&handle);
+    GevCloseCamera(&handle[0]);
     std::cout << "End of program !! " << std::endl;
     return 0;
 }
