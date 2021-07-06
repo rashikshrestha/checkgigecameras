@@ -19,7 +19,8 @@ int main()
 	printf("%d camera(s) on the network\n", numCamera);
 	for (int i = 0; i < numCamera; i++)
 	{
-		std::cout << i << " : " << pCamera[i].macLow << std::endl;
+        printf("%d : %X",i,pCamera[i].macLow);
+		// std::cout << i << " : " << pCamera[i].macLow << std::endl;
 	}
 
     status = GevOpenCamera(&pCamera[0], GevExclusiveMode, &handle);
