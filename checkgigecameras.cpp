@@ -29,6 +29,7 @@ int main()
 
 
 
+    GevCloseCamera(&handle);
     std::cout << "End of program !! " << std::endl;
     return 0;
 }
