@@ -18,6 +18,8 @@ int main()
 
     char recieved_string[64] = {0};
 
+    char* feature[2] = {"ptpMode","ptpStatus"};
+
     
     int type;
 
@@ -49,8 +51,8 @@ int main()
 
         
 
-        GevGetFeatureValueAsString( handle[i], "ptpMode", &type, sizeof(recieved_string), recieved_string);
-        std::cout << "ptpMode = " << recieved_string << std::endl;
+        GevGetFeatureValueAsString( handle[i], feature[0], &type, sizeof(recieved_string), recieved_string);
+        std::cout << feature[0] << " = " << recieved_string << std::endl;
 
         GevGetFeatureValueAsString( handle[i], "ptpStatus", &type, sizeof(recieved_string), recieved_string);
         std::cout << "ptpStatus = " << recieved_string << std::endl;
