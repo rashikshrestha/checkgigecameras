@@ -15,7 +15,7 @@ int main()
 
     char recieved_string[100] = {0};
 
-    char* feature[3] = {"timestampModulo","ptpMode","ptpStatus"};
+    char* feature[5] = {"timestampModulo","ptpMode","ptpStatus","ptpServoStatus","ptpMasterClockId"};
 
     int feature_size = sizeof(feature)/sizeof(feature[0]);
 
