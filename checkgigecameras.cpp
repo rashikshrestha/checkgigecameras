@@ -54,8 +54,8 @@ int main()
         GevGetFeatureValue(handle[i], "ptpStatus", &type, sizeof(UINT32), &ptpStatus);
 	    std::cout << "ptpStatus = " << ptpStatus << std::endl;
 
-        GevGetFeatureValue(handle[i], "ptpMasterClockId", &type, sizeof(ptpMasterClockId), &ptpMasterClockId);
-	    std::cout << "ptpMasterClockId = " << ptpMasterClockId << std::endl;
+        GevGetFeatureValue(handle[i], "ptpMasterClockId", &type, sizeof(UINT32), ptpMasterClockId);
+	    std::cout << "ptpMasterClockId = " << *ptpMasterClockId << std::endl;
         
         
 
