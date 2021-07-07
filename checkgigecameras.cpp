@@ -37,12 +37,13 @@ int main()
         printf("\n");
         printf("Index: %d\tGUID: %d (%X)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
 
-        // GevSetFeatureValue(handle[i], "timestampModulo", sizeof(UINT32), &timestampModulo);
+        timestampModulo = 1000000000;
+        GevSetFeatureValue(handle[i], "timestampModulo", sizeof(UINT32), &timestampModulo);
         GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
 	    std::cout << "timestampModulo = " << timestampModulo << std::endl;
 
-        ptpMode = 2;
-        GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
+        // ptpMode = 2;
+        // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
         GevGetFeatureValue(handle[i], "ptpMode", &type, sizeof(UINT32), &ptpMode);
 	    std::cout << "ptpMode = " << ptpMode << std::endl;
 
