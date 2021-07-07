@@ -12,9 +12,6 @@ int main()
     // GEV_CAMERA_HANDLE handle = NULL;
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
     int numCamera = 0;
-    UINT32 timestampModulo = 1000000000;
-    UINT32 ptpMode = 0;
-    UINT32 ptpStatus = 0;
 
     char recieved_string[100] = {0};
 
@@ -28,15 +25,13 @@ int main()
     status = GevGetCameraList(pCamera, MAX_CAMERAS, &numCamera);
 
 	printf("%d camera(s) on the network\n", numCamera);
-	for (int i = 0; i < numCamera; i++)
-	{
-        
-	}
 
     for (int i = 0; i < numCamera; i++)
 	{
         status = GevOpenCamera(&pCamera[i], GevExclusiveMode, &handle[i]);
-        std::cout << status << std::endl;
+        
+        if(status != 0)
+            std::cout << "Error opening camera" << i << std::endl;
 	}
 
     printf("\n\nCamera details: \n");
@@ -46,18 +41,13 @@ int main()
         printf("\n");
         printf("Index: %d\tGUID: %d (%X)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
 
-        // timestampModulo = 1000000000;
-        // GevSetFeatureValue(handle[i], "timestampModulo", sizeof(UINT32), &timestampModulo);
-        // GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
-	    // std::cout << "timestampModulo = " << timestampModulo << std::endl;
-
+        // Print the listed features of camera i
         for(int j=0;j<feature_size;j++)
         {
             GevGetFeatureValueAsString( handle[i], feature[j], &type, sizeof(recieved_string), recieved_string);
             std::cout << feature[j] << " = " << recieved_string << std::endl;
             
         }
-
 
         printf("----------------------------------------------------------------\n");
 	}
@@ -73,6 +63,15 @@ int main()
     std::cout << "End of program !! " << std::endl;
     return 0;
 }
+
+// UINT32 timestampModulo = 1000000000;
+// UINT32 ptpMode = 0;
+// UINT32 ptpStatus = 0;
+
+// timestampModulo = 1000000000;
+// GevSetFeatureValue(handle[i], "timestampModulo", sizeof(UINT32), &timestampModulo);
+// GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
+// std::cout << "timestampModulo = " << timestampModulo << std::endl;
 
 // ptpMode = 2;
 // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
