@@ -39,7 +39,7 @@ int main()
     for (int i = 0; i < numCamera; i++)
 	{
         printf("\n");
-        printf("Index: %d\tGUID: %d (%X)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
+        printf("Index: %d\tGUID: %d (%x)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
 
         // Print the listed features of camera i
         for(int j=0;j<feature_size;j++)
