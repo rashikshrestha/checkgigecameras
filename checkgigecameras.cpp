@@ -14,6 +14,7 @@ int main()
     int numCamera = 0;
     UINT32 timestampModulo = 1000000000;
     UINT32 ptpMode = 0;
+    UINT32 ptpStatus = 0;
     int type;
 
     status = GevGetCameraList(pCamera, MAX_CAMERAS, &numCamera);
@@ -46,6 +47,14 @@ int main()
         // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
         GevGetFeatureValue(handle[i], "ptpMode", &type, sizeof(UINT32), &ptpMode);
 	    std::cout << "ptpMode = " << ptpMode << std::endl;
+
+        GevGetFeatureValue(handle[i], "ptpStatus", &type, sizeof(UINT32), &ptpStatus);
+	    std::cout << "ptpStatus = " << ptpStatus << std::endl;
+
+        
+
+        
+
 
         printf("----------------------------------------------------------------\n");
 	}
