@@ -16,7 +16,7 @@ int main()
     UINT32 ptpMode = 0;
     UINT32 ptpStatus = 0;
 
-    char pixelfmt[64] = {0};
+    char recieved_string[64] = {0};
 
     
     int type;
@@ -55,8 +55,8 @@ int main()
         GevGetFeatureValue(handle[i], "ptpStatus", &type, sizeof(UINT32), &ptpStatus);
 	    std::cout << "ptpStatus = " << ptpStatus << std::endl;
 
-        GevGetFeatureValueAsString( handle[i], "PixelFormat", &type, sizeof(pixelfmt), pixelfmt);
-        std::cout << "PixelFormat = " << pixelfmt << std::endl;
+        GevGetFeatureValueAsString( handle[i], "ptpStatus", &type, sizeof(recieved_string), recieved_string);
+        std::cout << "ptpStatus = " << recieved_string << std::endl;
 
 
         
