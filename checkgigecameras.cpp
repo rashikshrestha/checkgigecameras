@@ -47,13 +47,10 @@ int main()
         GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
 	    std::cout << "timestampModulo = " << timestampModulo << std::endl;
 
-        // ptpMode = 2;
-        // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
-        GevGetFeatureValue(handle[i], "ptpMode", &type, sizeof(UINT32), &ptpMode);
-	    std::cout << "ptpMode = " << ptpMode << std::endl;
+        
 
-        GevGetFeatureValue(handle[i], "ptpStatus", &type, sizeof(UINT32), &ptpStatus);
-	    std::cout << "ptpStatus = " << ptpStatus << std::endl;
+        GevGetFeatureValueAsString( handle[i], "ptpMode", &type, sizeof(recieved_string), recieved_string);
+        std::cout << "ptpMode = " << recieved_string << std::endl;
 
         GevGetFeatureValueAsString( handle[i], "ptpStatus", &type, sizeof(recieved_string), recieved_string);
         std::cout << "ptpStatus = " << recieved_string << std::endl;
@@ -78,3 +75,8 @@ int main()
     std::cout << "End of program !! " << std::endl;
     return 0;
 }
+
+// ptpMode = 2;
+// GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
+// GevGetFeatureValue(handle[i], "ptpMode", &type, sizeof(UINT32), &ptpMode);
+// std::cout << "ptpMode = " << ptpMode << std::endl;
