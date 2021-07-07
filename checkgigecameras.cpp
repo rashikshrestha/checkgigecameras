@@ -16,9 +16,9 @@ int main()
     UINT32 ptpMode = 0;
     UINT32 ptpStatus = 0;
 
-    char recieved_string[64] = {0};
+    char recieved_string[100] = {0};
 
-    char* feature[2] = {"ptpMode","ptpStatus"};
+    char* feature[3] = {"timestampModulo","ptpMode","ptpStatus"};
 
     int feature_size = sizeof(feature)/sizeof(feature[0]);
 
@@ -46,10 +46,10 @@ int main()
         printf("\n");
         printf("Index: %d\tGUID: %d (%X)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
 
-        timestampModulo = 1000000000;
-        GevSetFeatureValue(handle[i], "timestampModulo", sizeof(UINT32), &timestampModulo);
-        GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
-	    std::cout << "timestampModulo = " << timestampModulo << std::endl;
+        // timestampModulo = 1000000000;
+        // GevSetFeatureValue(handle[i], "timestampModulo", sizeof(UINT32), &timestampModulo);
+        // GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
+	    // std::cout << "timestampModulo = " << timestampModulo << std::endl;
 
         for(int j=0;j<feature_size;j++)
         {
@@ -57,14 +57,6 @@ int main()
             std::cout << feature[j] << " = " << recieved_string << std::endl;
             
         }
-
-
-        
-
-        // GevGetFeatureValueAsString( handle[i], "ptpStatus", &type, sizeof(recieved_string), recieved_string);
-        // std::cout << "ptpStatus = " << recieved_string << std::endl;
-
-
 
 
         printf("----------------------------------------------------------------\n");
