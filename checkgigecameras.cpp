@@ -20,6 +20,8 @@ int main()
 
     char* feature[2] = {"ptpMode","ptpStatus"};
 
+    int feature_size = sizeof(feature)/sizeof(feature[0]);
+
     
     int type;
 
@@ -49,29 +51,26 @@ int main()
         GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
 	    std::cout << "timestampModulo = " << timestampModulo << std::endl;
 
-        
+        for(int j=0;j<feature_size;j++)
+        {
+            GevGetFeatureValueAsString( handle[i], feature[j], &type, sizeof(recieved_string), recieved_string);
+            std::cout << feature[j] << " = " << recieved_string << std::endl;
+            
+        }
 
-        GevGetFeatureValueAsString( handle[i], feature[0], &type, sizeof(recieved_string), recieved_string);
-        std::cout << feature[0] << " = " << recieved_string << std::endl;
-
-        GevGetFeatureValueAsString( handle[i], "ptpStatus", &type, sizeof(recieved_string), recieved_string);
-        std::cout << "ptpStatus = " << recieved_string << std::endl;
-
-
-        
-        
 
         
+
+        // GevGetFeatureValueAsString( handle[i], "ptpStatus", &type, sizeof(recieved_string), recieved_string);
+        // std::cout << "ptpStatus = " << recieved_string << std::endl;
+
+
 
 
         printf("----------------------------------------------------------------\n");
 	}
 
-    for(int i=0;i<sizeof(feature)/sizeof(feature[0]);i++)
-        {
-            std::cout << i << std::endl;
-        }
-
+  
     // Close all the Cameras
     for (int i = 0; i < numCamera; i++)
 	{
