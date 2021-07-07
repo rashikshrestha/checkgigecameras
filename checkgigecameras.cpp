@@ -41,6 +41,8 @@ int main()
         GevGetFeatureValue(handle[i], "timestampModulo", &type, sizeof(UINT32), &timestampModulo);
 	    std::cout << "timestampModulo = " << timestampModulo << std::endl;
 
+        ptpMode = 2;
+        GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
         GevGetFeatureValue(handle[i], "ptpMode", &type, sizeof(UINT32), &ptpMode);
 	    std::cout << "ptpMode = " << ptpMode << std::endl;
 
