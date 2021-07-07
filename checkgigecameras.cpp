@@ -67,6 +67,11 @@ int main()
         printf("----------------------------------------------------------------\n");
 	}
 
+    for(int i=0;i<sizeof(feature)/sizeof(feature[0]);i++)
+        {
+            std::cout << i << std::endl;
+        }
+
     // Close all the Cameras
     for (int i = 0; i < numCamera; i++)
 	{
