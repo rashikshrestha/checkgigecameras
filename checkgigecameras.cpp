@@ -58,7 +58,7 @@ int main()
         // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
 
         // GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
-        status = GevSetFeatureValueAsString( handle[i], "TriggerSource", "timestampModuloEvent");
+        status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "True");
         if(status)
             std::cout << "Error Setting Trigger Source on " << i << std::endl;
         
@@ -68,8 +68,9 @@ int main()
         {
             status = GevGetFeatureValueAsString( handle[i], feature[j], &type, sizeof(recieved_string), recieved_string);
             if(status)
-            std::cout << "Error reading feature " << feature[j] << " with status " << status << std::endl;
-            std::cout << feature[j] << " = " << recieved_string << std::endl;
+                std::cout << "Error reading feature \"" << feature[j] << "\" with status " << status << std::endl;
+            else
+                std::cout << feature[j] << " = " << recieved_string << std::endl;
             
         }
 
