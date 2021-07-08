@@ -25,8 +25,7 @@ int main()
                         "ptpMasterClockId",
                         "ChunkModeActive",
                         "transferTurboMode",
-                        "turboTransferEnable",
-                        "turboTransferMode"};
+                        "turboTransferEnable"};
 
     int feature_size = sizeof(feature)/sizeof(feature[0]);
 
@@ -64,13 +63,13 @@ int main()
         // if(status)
         //     std::cout << "Error Setting Trigger Source on " << i << std::endl;
 
-        // status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "1");
-        // if(status)
-        //     std::cout << "Error setting feature turboTransferEnable on Cam" << i << " with status " << status << std::endl;
-
-        status = GevSetFeatureValueAsString( handle[i], "ptpMode", "Off");
+        status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "1");
         if(status)
-            std::cout << "Error setting feature ptpMode on Cam" << i << " with status " << status << std::endl;
+            std::cout << "Error setting feature turboTransferEnable on Cam" << i << " with status " << status << std::endl;
+
+        // status = GevSetFeatureValueAsString( handle[i], "ptpMode", "Off");
+        // if(status)
+        //     std::cout << "Error setting feature ptpMode on Cam" << i << " with status " << status << std::endl;
         
 
         // Print the listed features of camera i
