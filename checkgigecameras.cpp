@@ -58,7 +58,7 @@ int main()
         // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
 
         // GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
-        // GevSetFeatureValueAsString( handle[i], "TriggerSource", "timestampModuloEvent");
+        GevSetFeatureValueAsString( handle[i], "TriggerSource", "timestampModuloEvent");
         
 
         // Print the listed features of camera i
