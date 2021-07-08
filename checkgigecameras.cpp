@@ -39,7 +39,7 @@ int main()
 	{
         status = GevOpenCamera(&pCamera[i], GevExclusiveMode, &handle[i]);
         
-        if(status != 0)
+        if(status)
             std::cout << "Error opening camera" << i << std::endl;
 	}
 
@@ -58,7 +58,9 @@ int main()
         // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
 
         // GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
-        GevSetFeatureValueAsString( handle[i], "TriggerSource", "timestampModuloEvent");
+        status = GevSetFeatureValueAsString( handle[i], "TriggerSource", "timestampModuloEvent");
+        if(status)
+            std::cout << "Error Setting Trigger Source on " << i << std::endl;
         
 
         // Print the listed features of camera i
