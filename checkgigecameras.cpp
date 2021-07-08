@@ -56,17 +56,17 @@ int main()
         // if(status)
         //     std::cout << "Error Setting Trigger Source on " << i << std::endl;
 
-        // status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "True");
-        // if(status)
-        //     std::cout << "Error setting feature turboTransferEnable on Cam" << i << " with status " << status << std::endl;
+        status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "True");
+        if(status)
+            std::cout << "Error setting feature turboTransferEnable on Cam" << i << " with status " << status << std::endl;
 
         // status = GevSetFeatureValueAsString( handle[i], "ptpMode", "Off");
         // if(status)
         //     std::cout << "Error setting feature ptpMode on Cam" << i << " with status " << status << std::endl;
 
-        status = GevSetFeatureValueAsString( handle[i], "TriggerMode", "Off");
-        if(status)
-            std::cout << "Error setting feature TriggerMode on Cam" << i << " with status " << status << std::endl;
+        // status = GevSetFeatureValueAsString( handle[i], "TriggerMode", "Off");
+        // if(status)
+        //     std::cout << "Error setting feature TriggerMode on Cam" << i << " with status " << status << std::endl;
         
 
         // Print the listed features of camera i
