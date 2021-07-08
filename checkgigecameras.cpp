@@ -58,7 +58,7 @@ int main()
         // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
 
         // GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
-        status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "True");
+        status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "1");
         if(status)
             std::cout << "Error Setting Trigger Source on " << i << std::endl;
         
