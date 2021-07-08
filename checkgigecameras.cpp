@@ -50,9 +50,9 @@ int main()
         printf("\n");
         printf("Index: %d\tGUID: %d (%x)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
 
-        status = GevSetFeatureValue(handle[i], "transferTurboMode", sizeof(UINT32), &turbomode);
+        status = GevSetFeatureValue(handle[i], "transferTurboEnable", sizeof(UINT32), &turbomode);
         if(!status)
-            std::cout << "error setting turbo on " << i << std::endl;
+            std::cout << "error setting turbo on " << i << "with status " << status << std::endl;
         
 
         // Print the listed features of camera i
