@@ -17,14 +17,14 @@ int main()
 
     char recieved_string[100] = {0};
 
-    char* feature[9] = {"timestampModulo",
+    char* feature[10] = {"timestampModulo",
                         "TriggerSource",
                         "ptpMode",
                         "ptpStatus",
                         "ptpServoStatus",
                         "ptpMasterClockId",
                         "ChunkModeActive",
-                        "ChunkTimestamp","transferTurboMode"};
+                        "ChunkTimestamp","transferTurboMode","turboTransferEnable"};
 
     int feature_size = sizeof(feature)/sizeof(feature[0]);
 
@@ -66,7 +66,9 @@ int main()
         // Print the listed features of camera i
         for(int j=0;j<feature_size;j++)
         {
-            GevGetFeatureValueAsString( handle[i], feature[j], &type, sizeof(recieved_string), recieved_string);
+            status = GevGetFeatureValueAsString( handle[i], feature[j], &type, sizeof(recieved_string), recieved_string);
+            if(status)
+            std::cout << "Error reading feature " << feature[j] << " with status " << status << std::endl;
             std::cout << feature[j] << " = " << recieved_string << std::endl;
             
         }
