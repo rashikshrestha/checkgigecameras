@@ -15,8 +15,9 @@ int main()
 
     char recieved_string[100] = {0};
 
-    char* feature[9] = {"timestampModulo",
+    char* feature[10] = {"timestampModulo",
                         "TriggerSource",
+                        "TriggerMode",
                         "ptpMode",
                         "ptpStatus",
                         "ptpServoStatus",
