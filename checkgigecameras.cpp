@@ -17,14 +17,14 @@ int main()
 
     char recieved_string[100] = {0};
 
-    char* feature[10] = {"timestampModulo",
+    char* feature[9] = {"timestampModulo",
                         "TriggerSource",
                         "ptpMode",
                         "ptpStatus",
                         "ptpServoStatus",
                         "ptpMasterClockId",
                         "ChunkModeActive",
-                        "ChunkTimestamp","transferTurboMode","turboTransferEnable"};
+                        "transferTurboMode","turboTransferEnable"};
 
     int feature_size = sizeof(feature)/sizeof(feature[0]);
 
@@ -58,9 +58,9 @@ int main()
         // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
 
         // GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
-        status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "1");
-        if(status)
-            std::cout << "Error Setting Trigger Source on " << i << std::endl;
+        // status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "1");
+        // if(status)
+        //     std::cout << "Error Setting Trigger Source on " << i << std::endl;
         
 
         // Print the listed features of camera i
