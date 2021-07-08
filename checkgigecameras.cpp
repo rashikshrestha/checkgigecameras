@@ -13,8 +13,6 @@ int main()
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
     int numCamera = 0;
 
-    UINT32 turbomode = 1;
-
     char recieved_string[100] = {0};
 
     char* feature[9] = {"timestampModulo",
@@ -50,13 +48,7 @@ int main()
 	{
         printf("\n");
         printf("Index: %d\tGUID: %d (%x)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
-
-        // status = GevSetFeatureValue(handle[i], "transferTurboEnable", sizeof(UINT32), &turbomode);
-        // if(status)
-        //     std::cout << "error setting turbo on " << i << "with status " << status << std::endl;
         
-        // UINT32 ptpMode = 2;
-        // GevSetFeatureValue(handle[i], "ptpMode", sizeof(UINT32), &ptpMode);
 
         // GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
         // status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "1");
