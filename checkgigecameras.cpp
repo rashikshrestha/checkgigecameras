@@ -63,6 +63,10 @@ int main()
         // status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "1");
         // if(status)
         //     std::cout << "Error Setting Trigger Source on " << i << std::endl;
+
+        status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "1");
+        if(status)
+            std::cout << "Error setting feature turboTransferEnable on Cam" << i << " with status " << status << std::endl;
         
 
         // Print the listed features of camera i
