@@ -13,9 +13,9 @@ int main()
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
 
     // ---------------------------------------------------------------------------
-    GEVLIB_CONFIG_OPTIONS* config;
+    GEVLIB_CONFIG_OPTIONS config;
 
-    config->logLevel = GEV_LOG_LEVEL_TRACE;
+    config.logLevel = GEV_LOG_LEVEL_TRACE;
 
     // status = GevGetLibraryConfigOptions(config);
     // if(status)
@@ -59,11 +59,11 @@ int main()
             std::cout << "Error opening camera" << i << std::endl;
 	}
 
-    status = GevGetLibraryConfigOptions(config);
+    status = GevGetLibraryConfigOptions(&config);
     if(status)
         std::cout << "Error getting config with status " << status << std::endl;
 
-    status = GevSetLibraryConfigOptions(config);
+    status = GevSetLibraryConfigOptions(&config);
     if(status)
         std::cout << "Error setting config with status " << status << std::endl;
 
