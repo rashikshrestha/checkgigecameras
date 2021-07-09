@@ -12,15 +12,17 @@ int main()
     // GEV_CAMERA_HANDLE handle = NULL;
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
 
-    GEVLIB_CONFIG_OPTIONS* config;
+    // ---------------------------------------------------------------------------
+    // GEVLIB_CONFIG_OPTIONS* config;
 
-    status = GevGetLibraryConfigOptions(config);
-    if(status)
-        std::cout << "Error getting config with status " << status << std::endl;
+    // status = GevGetLibraryConfigOptions(config);
+    // if(status)
+    //     std::cout << "Error getting config with status " << status << std::endl;
 
     
-    std::cout << config->logLevel << std::endl;
+    // std::cout << config->logLevel << std::endl;
 
+    // ---------------------------------------------------------------------------
 
 
     int numCamera = 0;
