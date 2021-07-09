@@ -91,7 +91,7 @@ int main()
         // if(status)
         //     std::cout << "Error setting feature TriggerMode on Cam" << i << " with status " << status << std::endl;
 
-        status = GevSetFeatureValueAsString( handle[i], "GevHeartbeatTimeout", "2000");
+        status = GevSetFeatureValueAsString( handle[i], "GevHeartbeatTimeout", "3000");
         if(status)
             std::cout << "Error setting feature GevHeartbeatTimeout on Cam" << i << " with status " << status << std::endl;
 
