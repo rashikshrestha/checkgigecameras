@@ -58,6 +58,11 @@ int main()
 	}
 
     status = GevGetLibraryConfigOptions(config);
+    if(status)
+        std::cout << "Error getting config with status " << status << std::endl;
+
+    
+    std::cout << config->logLevel << std::endl;
 
     printf("\n\nCamera details: \n");
 
