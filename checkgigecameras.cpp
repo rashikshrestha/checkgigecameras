@@ -61,7 +61,11 @@ int main()
     if(status)
         std::cout << "Error getting config with status " << status << std::endl;
 
-    config->logLevel = GEV_LOG_LEVEL_TRACE;
+    status = GevSetLibraryConfigOptions(config);
+    if(status)
+        std::cout << "Error setting config with status " << status << std::endl;
+
+    // config->logLevel = GEV_LOG_LEVEL_TRACE;
 
     // std::cout << config->logLevel << std::endl;
 
