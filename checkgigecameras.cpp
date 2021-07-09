@@ -15,12 +15,17 @@ int main()
     // ---------------------------------------------------------------------------
     GEVLIB_CONFIG_OPTIONS config;
 
-    // status = GevGetLibraryConfigOptions(config);
-    // if(status)
-    //     std::cout << "Error getting config with status " << status << std::endl;
+    status = GevGetLibraryConfigOptions(&config);
+    if(status)
+        std::cout << "Error getting config with status " << status << std::endl;
 
-    
-    // std::cout << config->logLevel << std::endl;
+    std::cout << "LOG level = " << config.logLevel << std::endl;
+
+    config.logLevel = GEV_LOG_LEVEL_TRACE;
+
+    status = GevSetLibraryConfigOptions(&config);
+    if(status)
+        std::cout << "Error setting config with status " << status << std::endl;
 
     // ---------------------------------------------------------------------------
 
@@ -57,18 +62,7 @@ int main()
             std::cout << "Error opening camera" << i << std::endl;
 	}
 
-    status = GevGetLibraryConfigOptions(&config);
-    if(status)
-        std::cout << "Error getting config with status " << status << std::endl;
-
-    std::cout << "LOG level = " <<config.logLevel << std::endl;
-
-
-    config.logLevel = GEV_LOG_LEVEL_TRACE;
-
-    status = GevSetLibraryConfigOptions(&config);
-    if(status)
-        std::cout << "Error setting config with status " << status << std::endl;
+    
 
     
 
