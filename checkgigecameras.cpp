@@ -15,6 +15,8 @@ int main()
     // ---------------------------------------------------------------------------
     GEVLIB_CONFIG_OPTIONS* config;
 
+    config->logLevel = GEV_LOG_LEVEL_TRACE;
+
     // status = GevGetLibraryConfigOptions(config);
     // if(status)
     //     std::cout << "Error getting config with status " << status << std::endl;
