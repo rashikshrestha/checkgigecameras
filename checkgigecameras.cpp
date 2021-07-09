@@ -13,19 +13,19 @@ int main()
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
 
     // ---------------------------------------------------------------------------
-    GEVLIB_CONFIG_OPTIONS config;
+    // GEVLIB_CONFIG_OPTIONS config;
 
-    status = GevGetLibraryConfigOptions(&config);
-    if(status)
-        std::cout << "Error getting config with status " << status << std::endl;
+    // status = GevGetLibraryConfigOptions(&config);
+    // if(status)
+    //     std::cout << "Error getting config with status " << status << std::endl;
 
-    std::cout << "LOG level = " << config.logLevel << std::endl;
+    // std::cout << "LOG level = " << config.logLevel << std::endl;
 
-    config.logLevel = GEV_LOG_LEVEL_TRACE;
+    // config.logLevel = GEV_LOG_LEVEL_TRACE;
 
-    status = GevSetLibraryConfigOptions(&config);
-    if(status)
-        std::cout << "Error setting config with status " << status << std::endl;
+    // status = GevSetLibraryConfigOptions(&config);
+    // if(status)
+    //     std::cout << "Error setting config with status " << status << std::endl;
 
     // ---------------------------------------------------------------------------
 
@@ -34,16 +34,14 @@ int main()
 
     char recieved_string[100] = {0};
 
-    char* feature[10] = {"timestampModulo",
+    char* feature[8] = {"timestampModulo",
                         "TriggerSource",
                         "TriggerMode",
                         "ptpMode",
                         "ptpStatus",
                         "ptpServoStatus",
                         "ptpMasterClockId",
-                        "ChunkModeActive",
-                        "transferTurboMode",
-                        "turboTransferEnable"};
+                        "ChunkModeActive"};
 
     int feature_size = sizeof(feature)/sizeof(feature[0]);
 
@@ -80,13 +78,13 @@ int main()
         // if(status)
         //     std::cout << "Error Setting Trigger Source on " << i << std::endl;
 
-        status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "True");
-        if(status)
-            std::cout << "Error setting feature turboTransferEnable on Cam" << i << " with status " << status << std::endl;
-
-        // status = GevSetFeatureValueAsString( handle[i], "ptpMode", "Off");
+        // status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "True");
         // if(status)
-        //     std::cout << "Error setting feature ptpMode on Cam" << i << " with status " << status << std::endl;
+        //     std::cout << "Error setting feature turboTransferEnable on Cam" << i << " with status " << status << std::endl;
+
+        status = GevSetFeatureValueAsString( handle[i], "ptpMode", "Slave");
+        if(status)
+            std::cout << "Error setting feature ptpMode on Cam" << i << " with status " << status << std::endl;
 
         // status = GevSetFeatureValueAsString( handle[i], "TriggerMode", "Off");
         // if(status)
