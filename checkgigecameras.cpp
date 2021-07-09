@@ -34,14 +34,15 @@ int main()
 
     char recieved_string[100] = {0};
 
-    char* feature[8] = {"timestampModulo",
+    char* feature[9] = {"timestampModulo",
                         "TriggerSource",
                         "TriggerMode",
                         "ptpMode",
                         "ptpStatus",
                         "ptpServoStatus",
                         "ptpMasterClockId",
-                        "ChunkModeActive"};
+                        "ChunkModeActive",
+                        "GevHeartbeatTimeout"};
 
     int feature_size = sizeof(feature)/sizeof(feature[0]);
 
@@ -73,10 +74,10 @@ int main()
         printf("Index: %d\tGUID: %d (%x)\n\n",i,pCamera[i].macLow,pCamera[i].macLow);
         
 
-        GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
-        status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "1");
-        if(status)
-            std::cout << "Error Setting Trigger Source on " << i << std::endl;
+        // GevSetFeatureValueAsString( handle[i], "timestampModulo", "1000000000");
+        // status = GevSetFeatureValueAsString( handle[i], "ChunkModeActive", "1");
+        // if(status)
+        //     std::cout << "Error Setting Trigger Source on " << i << std::endl;
 
         // status = GevSetFeatureValueAsString( handle[i], "turboTransferEnable", "True");
         // if(status)
@@ -89,6 +90,7 @@ int main()
         // status = GevSetFeatureValueAsString( handle[i], "TriggerMode", "On");
         // if(status)
         //     std::cout << "Error setting feature TriggerMode on Cam" << i << " with status " << status << std::endl;
+
         
 
         // Print the listed features of camera i
