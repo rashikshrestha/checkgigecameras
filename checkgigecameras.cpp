@@ -13,7 +13,7 @@ int main()
     GEV_CAMERA_HANDLE handle[MAX_CAMERAS];
 
     // ---------------------------------------------------------------------------
-    // GEVLIB_CONFIG_OPTIONS* config;
+    GEVLIB_CONFIG_OPTIONS* config;
 
     // status = GevGetLibraryConfigOptions(config);
     // if(status)
@@ -56,6 +56,8 @@ int main()
         if(status)
             std::cout << "Error opening camera" << i << std::endl;
 	}
+
+    status = GevGetLibraryConfigOptions(config);
 
     printf("\n\nCamera details: \n");
 
